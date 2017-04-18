@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Map Page</ion-title>
+  </ion-navbar>
+  <ion-searchbar [(ngModel)]="autocomplete.query" (ionInput)="updateSearch()" (ionCancel)="dismiss()"></ion-searchbar>
+</ion-header>
+
+<ion-content>
+    <ion-list>
+      <ion-item *ngFor="let item of autocompleteItems" tappable   (click)="chooseItem(item)">
+        {{ item.description }}
+      </ion-item>
+    </ion-list>
+  <div #map id="map"></div>
+</ion-content>

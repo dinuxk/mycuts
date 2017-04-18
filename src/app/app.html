@@ -1,0 +1,24 @@
+<ion-menu [content]="content"  side="left" class="tparent" >
+
+  <ion-header class="tparent">
+    <ion-toolbar color="dark" class="tparent white">
+      <div>
+        <img class="menu-user-image"[src]="photourl" />
+      </div>
+      <div style="height: 6vw"></div>
+     <div class="font18" text-center>{{Name}}</div>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <ion-list no-lines>
+      <div style="height: 6vw"></div>
+      <button class="tparent white" ion-item (click)="openPage(pages[0])">{{pages[0].title}}</button>
+      <div style="height: 6vw"></div>
+      <button class="tparent white" ion-item (click)="openPage(pages[3])">{{pages[3].title}}</button>
+    </ion-list>
+  </ion-content>
+
+</ion-menu>
+
+<ion-nav [root]="rootPage" #content swipeBackEnabled="true"></ion-nav>
