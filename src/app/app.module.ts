@@ -2,48 +2,44 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import {AngularFireModule} from 'angularfire2';
-import { HelloIonicPage } from '../pages/hello-ionic/hello-ionic';
-import { ItemDetailsPage } from '../pages/item-details/item-details';
-import { ListPage } from '../pages/list/list';
 import { MapPage } from '../pages/map/map';
-import { LoginPage } from '../pages/login/login';
-import {SignupPage} from '../pages/signup/signup';
- const angConfig = {
-    apiKey: "AIzaSyAfOs2AF6WpyxmaakMJDbtXKZYy80wfvL0",
-    authDomain: "my-app-93a5a.firebaseapp.com",
-    databaseURL: "https://my-app-93a5a.firebaseio.com",
-    projectId: "my-app-93a5a",
-    storageBucket: "my-app-93a5a.appspot.com",
-    messagingSenderId: "287620851093"
-  };
+//import { AddlocationPage } from '../pages/addlocation/addlocation';
+
+import { AuthService } from '../providers/auth-service';
+//  const angConfig = {
+//     apiKey: "AIzaSyAfOs2AF6WpyxmaakMJDbtXKZYy80wfvL0",
+//     authDomain: "my-app-93a5a.firebaseapp.com",
+//     databaseURL: "https://my-app-93a5a.firebaseio.com",
+//     projectId: "my-app-93a5a",
+//     storageBucket: "my-app-93a5a.appspot.com",
+//     messagingSenderId: "287620851093"
+//   };
+export const firebaseConfig = {
+     apiKey: "AIzaSyA0E4FcsLDLxGwTd6ipxI6YNphUc7YMYbw",
+    authDomain: "mycutsapp.firebaseapp.com",
+    databaseURL: "https://mycutsapp.firebaseio.com",
+    projectId: "mycutsapp",
+    storageBucket: "mycutsapp.appspot.com",
+    messagingSenderId: "847774870172"
+};
 
 @NgModule({
   declarations: [
     MyApp,
-    HelloIonicPage,
-    ItemDetailsPage,
-    ListPage,
-    MapPage,
-    LoginPage,
-    SignupPage
+    MapPage  
   ],
   imports: [
     IonicModule.forRoot(MyApp,{
       mode: 'ios'
     }),
-    AngularFireModule.initializeApp(angConfig)
+    AngularFireModule.initializeApp(firebaseConfig)
   ],
   bootstrap: [IonicApp],
   
   entryComponents: [
     MyApp,
-    HelloIonicPage,
-    ItemDetailsPage,
-    ListPage,
-    MapPage,
-    LoginPage,
-    SignupPage
+    MapPage 
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
+  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},AuthService]
 })
 export class AppModule {}
